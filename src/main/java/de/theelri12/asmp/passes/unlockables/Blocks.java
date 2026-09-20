@@ -11,7 +11,7 @@ public class Blocks {
     private static final Map<String, ItemStack> BLOCKS = new HashMap<>();
 
     static {
-        BLOCKS.put("sword", CraftEngineHook.getCraftEngineItem("asmp:sword"));
+        BLOCKS.put("test", CraftEngineHook.getCraftEngineItem("asmp:testblock"));
     }
 
     public static ItemStack getBlockByID(String id) {
