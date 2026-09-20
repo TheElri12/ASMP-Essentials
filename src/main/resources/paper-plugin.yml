@@ -1,0 +1,58 @@
+name: ASMP-Essentials
+version: 1.0
+author: TheElri12
+website: https://theelri12.de/
+main: de.theelri12.asmp.main.Main
+api-version: '26.2'
+
+dependencies:
+   server:
+      WorldGuard:
+         load: BEFORE
+         required: true
+         join-classpath: true
+      PlaceholderAPI:
+         load: BEFORE
+         required: true
+      CraftEngine:
+         load: BEFORE
+         required: true
+      Vault:
+         load: BEFORE
+         required: true
+
+commands:
+   withdraw:
+      aliases: [w, wd, with]
+   deposit:
+      aliases: [d, dep]
+      description: Zahlt Shards auf dein Konto ein
+   continue:
+      aliases: [c, back, weiter, b]
+      description: Teleportirt dich zu deinem Logout Position
+   open-pass:
+      aliases: [open, pass]
+      description: Öffnet einen Pass
+
+permissions:
+   asmp.bypass.tptospawnonjoin:
+      description: "Umgeht den Code der dich zum Spawn teleportiert wenn du joinst."
+      default: false
+   asmp.cmd.open-pass:
+      description: ""
+      default: false
+   asmp.cmd.open-pass.shard:
+      description: ""
+      default: false
+   asmp.cmd.deposit:
+      description: ""
+      default: true
+   asmp.cmd.deposit.all:
+      description: ""
+      default: true
+   asmp.cmd.withdraw:
+      description: ""
+      default: false
+   asmp.cmd.debug:
+      description: ""
+      default: false
