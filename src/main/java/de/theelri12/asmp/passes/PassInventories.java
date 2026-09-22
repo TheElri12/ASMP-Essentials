@@ -1,5 +1,8 @@
 package de.theelri12.asmp.passes;
 
+import de.theelri12.asmp.main.Main;
+import de.theelri12.asmp.passes.data_types.TierReward;
+import de.theelri12.asmp.passes.data_types.TierRewardPDC;
 import de.theelri12.asmp.pdc.PDCKeys;
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -14,9 +17,10 @@ import java.util.*;
 
 public class PassInventories {
 
-    private static ItemStack setPDC(ItemStack tierItem, int cost, int level) {
+    private static ItemStack setPDC(ItemStack tierItem, int cost, int level, TierReward reward) {
         tierItem.getItemMeta().getPersistentDataContainer().set(PDCKeys.ITEM_COST, PersistentDataType.INTEGER, cost);
         tierItem.getItemMeta().getPersistentDataContainer().set(PDCKeys.ITEM_LEVEL, PersistentDataType.INTEGER, level);
+        tierItem.getItemMeta().getPersistentDataContainer().set(PDCKeys.TIER_REWARD, new TierRewardPDC(Main.getPlugin()), reward);
         return tierItem;
     }
 
@@ -34,7 +38,7 @@ public class PassInventories {
         List<ItemStack> tiersPage4 = new ArrayList<>();
 
         //Tier Items Seite 1
-        tiersPage1.add(setPDC(new ItemStack(Material.DIAMOND), 5, 1));
+        tiersPage1.add(setPDC(new ItemStack(Material.DIAMOND), 5, 1, TierReward.item()));
         tiersPage1.add(setPDC(new ItemStack(Material.DIAMOND), 5, 2));
         tiersPage1.add(setPDC(new ItemStack(Material.DIAMOND), 5, 3));
         tiersPage1.add(setPDC(new ItemStack(Material.DIAMOND), 5, 4));
