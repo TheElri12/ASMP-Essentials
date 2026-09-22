@@ -18,6 +18,7 @@ public class PassHolder implements InventoryHolder {
     private final Player player;
     private final PassType passType;
     private int page;
+    private Inventory inventory;
 
     public PassHolder(Player player, PassType passType) {
         this(player, passType, 0);
@@ -45,9 +46,13 @@ public class PassHolder implements InventoryHolder {
         this.page = page;
     }
 
+    public void setInventory(Inventory inventory) { // neu
+        this.inventory = inventory;
+    }
+
     @Override
     public Inventory getInventory() {
-        return null;
+        return inventory;
     }
 
 }

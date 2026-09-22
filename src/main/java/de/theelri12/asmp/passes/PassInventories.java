@@ -37,7 +37,9 @@ public class PassInventories {
         String resolvedPlaceholder = PlaceholderAPI.setPlaceholders(null, titleString);
         final var title = MiniMessage.miniMessage().deserialize(resolvedPlaceholder);
 
-        Inventory passInv = Bukkit.createInventory(new PassHolder(player, PassHolder.PassType.SHARD), 6 * 9, title);
+        PassHolder holder = new PassHolder(player, PassHolder.PassType.SHARD);
+        Inventory passInv = Bukkit.createInventory(holder, 6 * 9, title);
+        holder.setInventory(passInv);
 
         Map<Integer, List<ItemStack>> pages = new HashMap<>(Map.of());
         List<ItemStack> tiersPage1 = new ArrayList<>();
