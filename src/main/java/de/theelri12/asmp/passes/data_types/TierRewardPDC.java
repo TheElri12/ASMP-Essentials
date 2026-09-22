@@ -1,6 +1,5 @@
 package de.theelri12.asmp.passes.data_types;
 
-import de.theelri12.asmp.main.Main;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.persistence.PersistentDataAdapterContext;

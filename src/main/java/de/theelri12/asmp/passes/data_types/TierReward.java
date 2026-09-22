@@ -1,8 +1,6 @@
 package de.theelri12.asmp.passes.data_types;
 
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
-import org.bukkit.inventory.ItemStack;
 
 public record TierReward(RewardType type, Material item, String craftEngineId, int amount) {
 

@@ -14,7 +14,7 @@ public class PassInventoryListener implements Listener {
         if (!(event.getInventory().getHolder() instanceof PassHolder)) return;
         event.setCancelled(true);
 
-        if (event.isLeftClick() && PassActions.canRedeemTier(event.getSlot(), (PassHolder) event.getInventory().getHolder())) {
+        if (event.isLeftClick() && PassActions.canRedeemTier(event.getCurrentItem(), (PassHolder) event.getInventory().getHolder())) {
 
         }
     }
