@@ -37,11 +37,10 @@ public class DepositCommand {
         if (mainHandItemId != null && mainHandItemId.equals(Key.of("asmp:shard"))) {
             int shardAmount = mainHandItem.getAmount();
             if (all) {
-                player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
                 EconomyResponse economyResponse = eco.depositPlayer(player, shardAmount);
                 if (!economyResponse.transactionSuccess()) {
                     player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <red>Ein Fehler ist beim einzahlen deiner <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> aufgetreten: " + economyResponse.errorMessage));
-                    mainHandItem.setAmount(shardAmount);
+                    player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
                 } else {
                     player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <green>Du hast " + eco.format(economyResponse.amount) + "<green> <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> auf dein Konto eingezahlt."));
                     mainHandItem.setAmount(shardAmount);
