@@ -40,5 +40,6 @@ public class PDCKeys {
     //Item PDCKeys
     public static final NamespacedKey ITEM_COST = new NamespacedKey("asmp", "ietm_cost");
     public static final NamespacedKey ITEM_LEVEL = new NamespacedKey("asmp", "item_level");
+    public static final NamespacedKey TIER_REWARD = new NamespacedKey("asmp", "tier_reward");
 
 }
