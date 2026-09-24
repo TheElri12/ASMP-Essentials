@@ -5,11 +5,9 @@ import de.theelri12.asmp.hooks.VaultHook;
 import de.theelri12.asmp.listener.JoinListener;
 import de.theelri12.asmp.listener.LeaveListener;
 import de.theelri12.asmp.listener.PassInventoryListener;
-import de.theelri12.asmp.passes.PassManager;
 import io.papermc.paper.command.brigadier.Commands;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import org.bukkit.Bukkit;
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 

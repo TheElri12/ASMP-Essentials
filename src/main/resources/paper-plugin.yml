@@ -1,9 +1,9 @@
 name: ASMP-Essentials
-version: 1.0
+version: 1.0.0
 author: TheElri12
 website: https://theelri12.de/
 main: de.theelri12.asmp.main.Main
-api-version: '26.2'
+api-version: '26.3'
 
 dependencies:
    server:
@@ -20,19 +20,6 @@ dependencies:
       Vault:
          load: BEFORE
          required: true
-
-commands:
-   withdraw:
-      aliases: [w, wd, with]
-   deposit:
-      aliases: [d, dep]
-      description: Zahlt Shards auf dein Konto ein
-   continue:
-      aliases: [c, back, weiter, b]
-      description: Teleportirt dich zu deinem Logout Position
-   open-pass:
-      aliases: [open, pass]
-      description: Öffnet einen Pass
 
 permissions:
    asmp.bypass.tptospawnonjoin:
