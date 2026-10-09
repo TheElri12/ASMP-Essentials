@@ -20,6 +20,9 @@ dependencies:
       Vault:
          load: BEFORE
          required: true
+      LuckPerms:
+         load: BEFORE
+         required: true
 
 permissions:
    asmp.bypass.tptospawnonjoin:
@@ -41,5 +44,20 @@ permissions:
       description: ""
       default: false
    asmp.cmd.debug:
+      description: ""
+      default: false
+   asmp.cmd.court:
+      description: ""
+      default: false
+   asmp.cmd.court.prison:
+      description: ""
+      default: false
+   asmp.cmd.court.prison.send:
+      description: ""
+      default: false
+   asmp.cmd.court.prison.remove:
+      description: ""
+      default: false
+   asmp.cmd.court.anklagen:
       description: ""
       default: false

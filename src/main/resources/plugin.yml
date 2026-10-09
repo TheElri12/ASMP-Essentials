@@ -3,9 +3,9 @@ version: 1.0
 author: TheElri12
 website: https://theelri12.de/
 main: de.theelri12.asmp.main.Main
-api-version: '26.2'
+api-version: '26.3'
 
-depend: [WorldGuard, PlaceholderAPI, CraftEngine, Vault]
+depend: [WorldGuard, PlaceholderAPI, Vault]
 
 permissions:
    asmp.bypass.tptospawnonjoin:

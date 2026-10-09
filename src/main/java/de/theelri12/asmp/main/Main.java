@@ -37,6 +37,7 @@ public class Main extends JavaPlugin {
             registrar.register(DepositCommand.create(), "Zahlt Shards auf dein Konto ein", List.of("d", "dep"));
             registrar.register(WithdrawCommand.create(), "Zahlt Shards aus", List.of("w", "with", "draw"));
             registrar.register(ApplyCommand.create(), "Wendet einen Bestimmten block/item auf deine item/block an um es zu verbessern");
+            registrar.register(CourtCommand.create());
         });
 
 

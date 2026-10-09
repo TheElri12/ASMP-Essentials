@@ -38,7 +38,7 @@ public class ContinueCommand {
                             world,
                             pdc.getOrDefault(PDCKeys.LOGOUT_X, PersistentDataType.DOUBLE, -144.5d),
                             pdc.getOrDefault(PDCKeys.LOGOUT_Y, PersistentDataType.DOUBLE, 197d),
-                            pdc.getOrDefault(PDCKeys.LOGOUT_Z, PersistentDataType.DOUBLE, -293.5d ),
+                            pdc.getOrDefault(PDCKeys.LOGOUT_Z, PersistentDataType.DOUBLE, -293.5d),
                             pdc.getOrDefault(PDCKeys.LOGOUT_PITCH, PersistentDataType.FLOAT, 0f),
                             pdc.getOrDefault(PDCKeys.LOGOUT_YAW, PersistentDataType.FLOAT, 15f)
                     );

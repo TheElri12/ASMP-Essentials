@@ -30,6 +30,7 @@ dependencies {
     compileOnly("net.momirealms:craft-engine-core:26.8")
     compileOnly("net.momirealms:craft-engine-bukkit:26.8")
     compileOnly("me.clip:placeholderapi:2.11.6")
+    compileOnly("net.luckperms:api:5.4")
     compileOnly("com.github.MilkBowl:VaultAPI:1.7") {
         isTransitive = false
     }
