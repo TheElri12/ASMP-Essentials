@@ -3,6 +3,7 @@ package de.theelri12.asmp.commands;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import de.theelri12.asmp.hooks.VaultHook;
+import de.theelri12.asmp.main.Main;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -39,22 +40,22 @@ public class DepositCommand {
             if (all) {
                 EconomyResponse economyResponse = eco.depositPlayer(player, shardAmount);
                 if (!economyResponse.transactionSuccess()) {
-                    player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <red>Ein Fehler ist beim einzahlen deiner <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> aufgetreten: " + economyResponse.errorMessage));
+                    player.sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "<red>Ein Fehler ist beim einzahlen deiner <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> aufgetreten: " + economyResponse.errorMessage));
                     mainHandItem.setAmount(shardAmount);
                 } else {
-                    player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <green>Du hast " + eco.format(economyResponse.amount) + "<green> <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> auf dein Konto eingezahlt."));
+                    player.sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "Du hast " + eco.format(economyResponse.amount) + "<green> <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> auf dein Konto eingezahlt."));
                     player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
                 }
             } else {
                 mainHandItem.setAmount(shardAmount -1);
                 EconomyResponse economyResponse = eco.depositPlayer(player, 1);
                 if (!economyResponse.transactionSuccess()) {
-                    player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <red>Ein Fehler ist beim einzahlen deiner <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> aufgetreten: " + economyResponse.errorMessage));
+                    player.sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "<red>Ein Fehler ist beim einzahlen deiner <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> aufgetreten: " + economyResponse.errorMessage));
                 } else
-                    player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <green>Du hast " + eco.format(economyResponse.amount) + "<green> <bold><gradient:#cba6f7:#815add>Shard</gradient></bold> auf dein Konto eingezahlt."));
+                    player.sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "Du hast " + eco.format(economyResponse.amount) + "<green> <bold><gradient:#cba6f7:#815add>Shard</gradient></bold> auf dein Konto eingezahlt."));
             }
         } else
-            player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <red>Du musst <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> in der Hand halten um sie einzuzahlen!"));
+            player.sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "<red>Du musst <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> in der Hand halten um sie einzuzahlen!"));
 
         return 1;
     }

@@ -5,6 +5,7 @@ import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import de.theelri12.asmp.hooks.CraftEngineHook;
 import de.theelri12.asmp.hooks.VaultHook;
+import de.theelri12.asmp.main.Main;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -36,11 +37,11 @@ public class WithdrawCommand {
             shards.setAmount(amount);
             player.give(shards);
             if (economyResponse.amount == 1)
-                player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <green>Du hast " + eco.format(economyResponse.amount) + " <green><bold><gradient:#cba6f7:#815add>Shard</gradient></bold> ausgezahlt."));
+                player.sendMessage(MiniMessage.miniMessage().deserialize( Main.getPrefix() + "Du hast " + eco.format(economyResponse.amount) + " <green><bold><gradient:#cba6f7:#815add>Shard</gradient></bold> ausgezahlt."));
             else
-                player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <green>Du hast " + eco.format(economyResponse.amount) + " <green><bold><gradient:#cba6f7:#815add>Shards</gradient></bold> ausgezahlt."));
+                player.sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "Du hast " + eco.format(economyResponse.amount) + " <green><bold><gradient:#cba6f7:#815add>Shards</gradient></bold> ausgezahlt."));
         } else {
-            player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <red>Ein Fehler ist beim auszahlen deiner <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> aufgetreten: " + economyResponse.errorMessage));
+            player.sendMessage(MiniMessage.miniMessage().deserialize( Main.getPrefix() + "<red>Ein Fehler ist beim auszahlen deiner <bold><gradient:#cba6f7:#815add>Shards</gradient></bold> aufgetreten: " + economyResponse.errorMessage));
         }
 
 

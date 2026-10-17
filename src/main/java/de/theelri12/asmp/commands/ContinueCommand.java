@@ -2,6 +2,7 @@ package de.theelri12.asmp.commands;
 
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.tree.LiteralCommandNode;
+import de.theelri12.asmp.main.Main;
 import de.theelri12.asmp.pdc.PDCKeys;
 import de.theelri12.asmp.worldguard.RegionCheck;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
@@ -43,16 +44,16 @@ public class ContinueCommand {
                             pdc.getOrDefault(PDCKeys.LOGOUT_YAW, PersistentDataType.FLOAT, 15f)
                     );
                     player.teleport(logOutLocation);
-                    player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <green>Du wurdest erfolgreich zu deiner Logout-Position teleportiert!"));
+                    player.sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "Du wurdest erfolgreich zu deiner Logout-Position teleportiert!"));
                     pdc.set(PDCKeys.HAS_CONTINUED, PersistentDataType.BOOLEAN, true);
 
                     return 1;
                 } else {
-                    player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <red>Du kannst diesen Befehl nur einmal nach dem du gejoint bist ausführen!"));
+                    player.sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "<red>Du kannst diesen Befehl nur einmal nach dem du gejoint bist ausführen!"));
                     return 0;
                 }
             } else {
-                player.sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <red>Du kannst diesen Befehl nicht ausführen, du bist nicht mehr im <gold>Spawn</gold> Bereich!"));
+                player.sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "<red>Du kannst diesen Befehl nicht ausführen, du bist nicht mehr im <gold>Spawn</gold> Bereich!"));
                 return 0;
             }
         } else return 0;

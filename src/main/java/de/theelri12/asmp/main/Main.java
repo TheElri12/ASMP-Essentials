@@ -10,6 +10,7 @@ import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -21,6 +22,12 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         plugin = this;
 
+        saveDefaultConfig();
+
+        ConfigManager configManager;
+        configManager = new ConfigManager(this);
+        configManager.setup();
+
         VaultHook.setupEconomy(this);
 
         PluginManager pluginManager = Bukkit.getPluginManager();
@@ -31,13 +38,13 @@ public class Main extends JavaPlugin {
         //Command
         this.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {
             Commands registrar = commands.registrar();
-            registrar.register(ContinueCommand.create(), "Teleportirt dich zu deinem Logout Position", List.of("c", "back", "weiter", "b"));
+            registrar.register(ContinueCommand.create(), "Teleportiert dich zu deiner letzten Logout Position", List.of("c", "back", "weiter", "b"));
             registrar.register(ASMPDebugCommand.create());
             registrar.register(OpenPassCommand.create(), "Öffnet einen Pass", List.of("open", "pass"));
             registrar.register(DepositCommand.create(), "Zahlt Shards auf dein Konto ein", List.of("d", "dep"));
             registrar.register(WithdrawCommand.create(), "Zahlt Shards aus", List.of("w", "with", "draw"));
             registrar.register(ApplyCommand.create(), "Wendet einen Bestimmten block/item auf deine item/block an um es zu verbessern");
-            registrar.register(CourtCommand.create());
+            registrar.register(ASMPCommand.create());
         });
 
 
@@ -50,6 +57,10 @@ public class Main extends JavaPlugin {
 
     public static Main getPlugin() {
         return plugin;
+    }
+
+    public static String getPrefix() {
+        return getPlugin().getConfig().getString("prefix", "[ASMP]");
     }
 
 }

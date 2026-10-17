@@ -4,6 +4,7 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import com.mojang.brigadier.tree.LiteralCommandNode;
+import de.theelri12.asmp.main.Main;
 import de.theelri12.asmp.pdc.PDCKeys;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
@@ -20,7 +21,7 @@ public class ApplyCommand {
         return Commands.literal("apply")
                 .requires( ctx -> ctx.getSender() instanceof Player player && player.hasPermission("asmp.cmd.apply"))
                 .executes(ctx -> {
-                    ctx.getSource().getSender().sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <green>Wende mit diesem Befehl einen Buff/Skin an indem du entweder Item oder Block und dann deinen Freigeschalteten Buff/Skin auswählst."));
+                    ctx.getSource().getSender().sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "Wende mit diesem Befehl einen Buff/Skin an indem du entweder Item oder Block und dann deinen Freigeschalteten Buff/Skin auswählst."));
                     return 1;
                 })
                 .then(Commands.literal("item")
@@ -36,7 +37,7 @@ public class ApplyCommand {
                                 })
                         )
                         .executes(ctx -> {
-                            ctx.getSource().getSender().sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <green>Wende einen Item Buff/Skin auf ein Item an."));
+                            ctx.getSource().getSender().sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "Wende einen Item Buff/Skin auf ein Item an."));
                             return 1;
                         })
                 )
@@ -53,7 +54,7 @@ public class ApplyCommand {
                                 })
                         )
                         .executes(ctx -> {
-                            ctx.getSource().getSender().sendMessage(MiniMessage.miniMessage().deserialize("<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <green>Wende einen Block Buff/Skin auf einen Block an."));
+                            ctx.getSource().getSender().sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "Wende einen Block Buff/Skin auf einen Block an."));
                             return 1;
                         })
                 )
