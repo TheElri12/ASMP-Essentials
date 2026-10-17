@@ -18,13 +18,14 @@ public class Main extends JavaPlugin {
 
     private static Main plugin;
 
+    private static ConfigManager configManager;
+
     @Override
     public void onEnable() {
         plugin = this;
 
         saveDefaultConfig();
 
-        ConfigManager configManager;
         configManager = new ConfigManager(this);
         configManager.setup();
 
@@ -62,5 +63,8 @@ public class Main extends JavaPlugin {
     public static String getPrefix() {
         return getPlugin().getConfig().getString("prefix", "[ASMP]");
     }
+
+    public static ConfigManager getConfigManager() { return configManager; }
+
 
 }

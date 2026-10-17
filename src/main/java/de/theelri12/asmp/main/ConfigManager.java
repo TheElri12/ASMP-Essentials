@@ -9,23 +9,35 @@ import java.io.IOException;
 public class ConfigManager {
 
     private final JavaPlugin plugin;
+    private File file;
+    private YamlConfiguration cfg;
+
     public ConfigManager(JavaPlugin plugin) {
         this.plugin = plugin;
     }
 
-    private File file;
-    private YamlConfiguration cfg;
-
     public void setup() {
         file = new File(plugin.getDataFolder(), "prison_invs.yml");
         if (!file.exists()) {
-            plugin.saveResource("prison_invs.yml", false);
+            try {
+                plugin.getDataFolder().mkdirs();
+                file.createNewFile();
+            } catch (IOException e) {
+                plugin.getLogger().severe("Konnte prison_invs.yml nicht erstellen: " + e.getMessage());
+            }
         }
         cfg = YamlConfiguration.loadConfiguration(file);
     }
 
-    public void save() throws IOException {
-        cfg.save(file);
+    public YamlConfiguration get() {
+        return cfg;
     }
 
+    public void save() {
+        try {
+            cfg.save(file);
+        } catch (IOException e) {
+            plugin.getLogger().severe("Konnte prison_invs.yml nicht speichern: " + e.getMessage());
+        }
+    }
 }
