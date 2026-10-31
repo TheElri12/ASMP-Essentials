@@ -61,3 +61,13 @@ permissions:
    asmp.cmd.court.anklagen:
       description: ""
       default: false
+   asmp.cmd.court.set-item-model:
+      description: ""
+      default: false
+   asmp.cmd.court.fake-join:
+      description: ""
+      default: false
+   asmp.cmd.court.fake-leave:
+      description: ""
+      default: false
+

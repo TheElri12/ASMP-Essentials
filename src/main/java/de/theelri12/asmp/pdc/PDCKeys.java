@@ -13,6 +13,8 @@ public class PDCKeys {
     public static final NamespacedKey LOGOUT_YAW = new NamespacedKey(Main.getPlugin(), "logout_yaw");
     public static final NamespacedKey LOGOUT_PITCH = new NamespacedKey(Main.getPlugin(), "logout_pitch");
 
+    public static final NamespacedKey IS_IN_PRISON = new NamespacedKey(Main.getPlugin(), "is_in_prison");
+
     public static final NamespacedKey WEAPON_PASS_LEVEL = new NamespacedKey(Main.getPlugin(), "weapon_pass_level");
     public static final NamespacedKey WEAPON_PASS_CLAIMED_TIERS = new NamespacedKey(Main.getPlugin(), "weapon_pass_claimed_tiers");
 
@@ -31,8 +33,7 @@ public class PDCKeys {
     public static final NamespacedKey BLOCK_PASS_LEVEL = new NamespacedKey(Main.getPlugin(), "block_pass_level");
     public static final NamespacedKey BLOCK_PASS_CLAIMED_TIERS = new NamespacedKey(Main.getPlugin(), "block_pass_claimed_tiers");
 
-    public static final NamespacedKey UNLOCKED_BLOCKS = new NamespacedKey(Main.getPlugin(), "unlocked_blocks");
-    public static final NamespacedKey UNLOCKED_ITEMS = new NamespacedKey(Main.getPlugin(), "unlocked_items");
+    public static final NamespacedKey UNLOCKED_ITEMS = new NamespacedKey(Main.getPlugin(), "unlocked_skins");
 
     //Item PDCKeys
     public static final NamespacedKey ITEM_COST = new NamespacedKey(Main.getPlugin(), "item_cost");

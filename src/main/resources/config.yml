@@ -1,1 +1,35 @@
 prefix: "<grey>[<bold><gradient:#cba6f7:#815add>ASMP</gradient></bold>]</grey> <green>"
+
+locations:
+  spawn:
+    ==: org.bukkit.Location
+    world: world
+    x: -144.5
+    y: 197.0
+    z: -293.5
+    yaw: 90.0
+    pitch: 0.0
+  prison:
+    ==: org.bukkit.Location
+    world: world
+    x: -74.5
+    y: 103.0
+    z: 22.5
+    yaw: 90.0
+    pitch: 0.0
+
+
+# posible types: MODEL, CRAFTENGINE
+# possible rarities: COMMON, UNCOMMON, RARE, SUPERRARE, EPIC, MYTHIC, LEGENDARY, CREATIVE
+# possible mobs: ALL, ZOMBIE, CREEPER, SPIDER, SKELETON, PHANTOM
+
+item-skins:
+  wrench:
+    displayname: "Der ultimative Schraubenschlüssel"
+    rarity: CREATIVE
+    items:
+      - MACE
+    type: MODEL
+    mobs:
+      - ZOMBIE
+    all-mobs: false
