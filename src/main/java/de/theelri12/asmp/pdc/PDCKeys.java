@@ -33,11 +33,10 @@ public class PDCKeys {
     public static final NamespacedKey BLOCK_PASS_LEVEL = new NamespacedKey(Main.getPlugin(), "block_pass_level");
     public static final NamespacedKey BLOCK_PASS_CLAIMED_TIERS = new NamespacedKey(Main.getPlugin(), "block_pass_claimed_tiers");
 
-    public static final NamespacedKey UNLOCKED_ITEMS = new NamespacedKey(Main.getPlugin(), "unlocked_skins");
+    public static final NamespacedKey UNLOCKED_SKINS = new NamespacedKey(Main.getPlugin(), "unlocked_skins");
+    public static final NamespacedKey CLAIMABLE_SKIN = new NamespacedKey(Main.getPlugin(), "claimable_skin");
 
     //Item PDCKeys
-    public static final NamespacedKey ITEM_COST = new NamespacedKey(Main.getPlugin(), "item_cost");
-    public static final NamespacedKey ITEM_LEVEL = new NamespacedKey(Main.getPlugin(), "item_level");
-    public static final NamespacedKey TIER_REWARD = new NamespacedKey(Main.getPlugin(), "tier_reward");
+    public static final NamespacedKey ITEM_COST = new NamespacedKey(Main.getPlugin(), "item_skin_id");
 
 }

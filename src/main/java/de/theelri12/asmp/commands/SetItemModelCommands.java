@@ -15,12 +15,8 @@ public class SetItemModelCommands {
     public static LiteralCommandNode<CommandSourceStack> create() {
         return Commands.literal("set-item-model")
                 .requires(ctx -> ctx.getSender() instanceof Player player && player.hasPermission("asmp.cmd.set-item-model"))
-                .then(Commands.argument("modelnamespace", StringArgumentType.word())
-                        .requires(ctx -> ctx.getSender() instanceof Player player && player.hasPermission("asmp.cmd.set-item-model"))
-                        .then(Commands.argument("modelname", StringArgumentType.word())
-                                .requires(ctx -> ctx.getSender() instanceof Player player && player.hasPermission("asmp.cmd.set-item-model"))
-                                .executes(SetItemModelCommands::setItemModel)
-                        )
+                .then(Commands.argument("model", StringArgumentType.word())
+                        .executes(SetItemModelCommands::setItemModel)
                 )
                 .build();
     }
@@ -29,7 +25,7 @@ public class SetItemModelCommands {
         Player player = ((Player) ctx.getSource().getSender());
         ItemStack hand = player.getInventory().getItemInMainHand();
         ItemMeta itemMeta = hand.getItemMeta();
-        NamespacedKey namespacedModel = new NamespacedKey(ctx.getArgument("modelnamespace", String.class), ctx.getArgument("modelname", String.class));
+        NamespacedKey namespacedModel = NamespacedKey.fromString(ctx.getArgument("model", String.class));
 
         itemMeta.setItemModel(namespacedModel);
         hand.setItemMeta(itemMeta);

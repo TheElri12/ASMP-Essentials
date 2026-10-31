@@ -24,9 +24,9 @@ public class PassInventories {
         ItemMeta meta = tierItem.getItemMeta();
         PersistentDataContainer pdc = meta.getPersistentDataContainer();
 
-        pdc.set(PDCKeys.ITEM_COST, PersistentDataType.INTEGER, cost);
-        pdc.set(PDCKeys.ITEM_LEVEL, PersistentDataType.INTEGER, level);
-        pdc.set(PDCKeys.TIER_REWARD, new TierRewardPDC(Main.getPlugin()), reward);
+        //pdc.set(PDCKeys.ITEM_COST, PersistentDataType.INTEGER, cost);
+        //pdc.set(PDCKeys.ITEM_LEVEL, PersistentDataType.INTEGER, level);
+        //pdc.set(PDCKeys.TIER_REWARD, new TierRewardPDC(Main.getPlugin()), reward);
 
         tierItem.setItemMeta(meta);
         return tierItem;

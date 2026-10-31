@@ -21,12 +21,12 @@ public class PassActions {
 
         int playerLevel = pdc.getOrDefault(keys.levelKey(), PersistentDataType.INTEGER, 0);
         List<Integer> claimedTiers = pdc.getOrDefault(keys.claimedTiersKey(), PersistentDataType.LIST.integers(), new ArrayList<>());
-
-        return item.getItemMeta().getPersistentDataContainer().getOrDefault(PDCKeys.ITEM_LEVEL, PersistentDataType.INTEGER, 0) >= playerLevel && !claimedTiers.contains(playerLevel);
+        return false;
+        //return item.getItemMeta().getPersistentDataContainer().getOrDefault(PDCKeys.ITEM_LEVEL, PersistentDataType.INTEGER, 0) >= playerLevel && !claimedTiers.contains(playerLevel);
     }
 
     public static void redeemTier(ItemStack item, PassHolder holder) {
-        int tierLevel = item.getItemMeta().getPersistentDataContainer().getOrDefault(PDCKeys.ITEM_LEVEL, PersistentDataType.INTEGER, 0);
+        //int tierLevel = item.getItemMeta().getPersistentDataContainer().getOrDefault(PDCKeys.ITEM_LEVEL, PersistentDataType.INTEGER, 0);
         Player player = holder.getPlayer();
         PersistentDataContainer pdc = player.getPersistentDataContainer();
         PassKeyMap.PassKeys keys = PassKeyMap.get(holder.getPassType());

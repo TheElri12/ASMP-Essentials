@@ -3,11 +3,14 @@ package de.theelri12.asmp.commands;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import de.theelri12.asmp.commands.functions.CourtFunctions;
+import de.theelri12.asmp.item_skins.ItemSkins;
+import de.theelri12.asmp.main.Main;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
 import io.papermc.paper.command.brigadier.argument.ArgumentTypes;
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.momirealms.craftengine.core.plugin.command.sender.Sender;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -19,7 +22,7 @@ public class ASMPCommand {
         return Commands.literal("asmp")
                 .then(Commands.literal("reload")
                         .requires(ctx -> ctx.getSender().hasPermission("asmp.cmd.reload"))
-                        .executes()
+                        .executes(ASMPCommand::reload)
                 )
 
                 .requires(ctx -> ctx.getSender().hasPermission("asmp.cmd"))
@@ -59,6 +62,9 @@ public class ASMPCommand {
     }
 
     private static int reload(CommandContext<CommandSourceStack> ctx) {
+
+        ItemSkins.loadFromConfig(Main.getPlugin().getConfig());
+        ctx.getSource().getSender().sendMessage(MiniMessage.miniMessage().deserialize(Main.getPrefix() + "Das ASMP Plugin wurde neu geladen."));
 
         return 1;
     }

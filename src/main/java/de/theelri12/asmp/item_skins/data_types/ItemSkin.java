@@ -1,6 +1,7 @@
 package de.theelri12.asmp.item_skins.data_types;
 
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.EntityType;
 
 import java.util.List;
@@ -11,7 +12,8 @@ public record ItemSkin(
         Rarity rarity,
         List<Material> items,
         Type type,
-        List<EntityType> mob,
+        NamespacedKey model,
+        List<EntityType> mobs,
         Boolean allMobs
 ) {
 
@@ -19,7 +21,6 @@ public record ItemSkin(
         COMMON,
         UNCOMMON,
         RARE,
-        SUPERRARE,
         EPIC,
         MYTHIC,
         LEGENDARY,
@@ -27,11 +28,6 @@ public record ItemSkin(
     }
 
     public enum Type {
-        MODEL,
-        CRAFTENGINE
-    }
-
-    public enum Mob {
         MODEL,
         CRAFTENGINE
     }

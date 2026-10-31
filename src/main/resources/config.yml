@@ -19,17 +19,18 @@ locations:
     pitch: 0.0
 
 
-# posible types: MODEL, CRAFTENGINE
-# possible rarities: COMMON, UNCOMMON, RARE, SUPERRARE, EPIC, MYTHIC, LEGENDARY, CREATIVE
-# possible mobs: ALL, ZOMBIE, CREEPER, SPIDER, SKELETON, PHANTOM
+# posible model types: MODEL, CRAFTENGINE
+# possible rarities: COMMON, UNCOMMON, RARE, EPIC, MYTHIC, LEGENDARY, CREATIVE
 
 item-skins:
   wrench:
     displayname: "Der ultimative Schraubenschlüssel"
     rarity: CREATIVE
+    skin:
+      type: MODEL
+      model: asmp:wrench
     items:
       - MACE
-    type: MODEL
     mobs:
       - ZOMBIE
     all-mobs: false

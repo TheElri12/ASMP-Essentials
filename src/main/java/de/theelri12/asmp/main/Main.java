@@ -2,10 +2,10 @@ package de.theelri12.asmp.main;
 
 import de.theelri12.asmp.commands.*;
 import de.theelri12.asmp.hooks.VaultHook;
-import de.theelri12.asmp.item_skins.LoadSkinsFromConfig;
+import de.theelri12.asmp.item_skins.ItemSkins;
+import de.theelri12.asmp.item_skins.listener.MobKillListener;
 import de.theelri12.asmp.listener.JoinListener;
 import de.theelri12.asmp.listener.LeaveListener;
-import de.theelri12.asmp.listener.PassInventoryListener;
 import io.papermc.paper.command.brigadier.Commands;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import org.bukkit.Bukkit;
@@ -30,7 +30,7 @@ public class Main extends JavaPlugin {
         getConfig().options().copyDefaults(true);
         saveConfig();
 
-        LoadSkinsFromConfig.file()
+        ItemSkins.loadFromConfig(plugin.getConfig());
 
         configManager = new ConfigManager(this);
         configManager.setup();
@@ -40,7 +40,8 @@ public class Main extends JavaPlugin {
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new LeaveListener(), this);
         pluginManager.registerEvents(new JoinListener(), this);
-        pluginManager.registerEvents(new PassInventoryListener(), this);
+        pluginManager.registerEvents(new MobKillListener(), this);
+
 
         //Command
         this.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {
